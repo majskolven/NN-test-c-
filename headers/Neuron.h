@@ -1,22 +1,24 @@
-#ifndef _NEURON_HPP_
-#define _NEURON_HPP_
+#ifndef NEURON_H
+#define NEURON_H
 
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
 
-Class Neuron
+class Neuron
 {
-Public:
+
+public:
   Neuron(double val);
 
 
   //using fast sigmoid
-  void activate();
+  double activate();
 
   //derivative for fast sigmoid
-  void derive()
+  double derive();
 
 
   //getter
@@ -24,7 +26,7 @@ Public:
   double getActivatedVal();
   double getDerivedVal();
 
-Private:
+private:
 
   double val;
 
