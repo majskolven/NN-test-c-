@@ -1,6 +1,7 @@
 #include "../headers/Matrice.h"
 
 
+
 Matrice::Matrice(int rows, int cols, bool initRandom)
 {
   this->rows = rows;
@@ -20,9 +21,20 @@ Matrice::Matrice(int rows, int cols, bool initRandom)
 }
 
 
-Matrice Matrice::*tranposeMatrice()
+Matrice *Matrice::tranposeMatrice()
 {
-  return nullptr;
+
+  Matrice *result = new Matrice(this->cols, this->rows, false);
+  for(int m = 0; m < this->rows; m++)
+  {
+    for(int n = 0; n < this->cols; n++)
+    {
+        result->setSpecificValue(n, m, this->getSpecificValue(m, n));
+    }
+  }
+  cout << to_string(result->getRowCount())<< "    "  << to_string(result->getColCount()) << endl << endl;
+
+  return result;
 }
 
 double Matrice::initRandomValue()
@@ -34,14 +46,14 @@ double Matrice::initRandomValue()
   return dis(gen);
 }
 
-void Matrice::setSpecificValue(int row, int cols, double value)
+void Matrice::setSpecificValue(int row, int col, double value)
 {
-
+  this->values.at(row).at(col) = value;
 }
 
-double Matrice::getSpecificValue(int row, int cols)
+double Matrice::getSpecificValue(int row, int col)
 {
-  return 0;
+  return this->values.at(row).at(col);
 }
 
 int Matrice::getRowCount()

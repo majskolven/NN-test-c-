@@ -15,7 +15,7 @@ class Layer
 public:
   Layer(int size);
 
-
+  int getSize();
   ~Layer();
 private:
   int size;

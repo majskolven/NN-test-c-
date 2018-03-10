@@ -10,7 +10,10 @@ Layer::Layer(int size)
   }
 }
 
-
+int Layer::getSize()
+{
+  return this->size;
+}
 
 
 Layer::~Layer()
