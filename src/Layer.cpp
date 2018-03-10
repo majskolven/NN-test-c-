@@ -6,6 +6,20 @@ Layer::Layer(int size)
   this->size = size;
   for(int i=0; i < this->size; i++)
   {
-    layer.push_back(new Neuron(0.0));
+    this->layer.push_back(new Neuron(0.0));
   }
+}
+
+
+
+
+Layer::~Layer()
+{
+  while (!this->layer.empty())
+  {
+    Neuron *n = this->layer.back();
+    delete n;
+    this->layer.pop_back();
+  }
+
 }

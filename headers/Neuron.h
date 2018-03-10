@@ -11,7 +11,7 @@ class Neuron
 {
 
 public:
-  Neuron(double val);
+  Neuron(double value);
 
 
   //using fast sigmoid
@@ -20,19 +20,20 @@ public:
   //derivative for fast sigmoid
   double derive();
 
-
+  //setter
+  void setValue(double value);
   //getter
-  double getVal();
-  double getActivatedVal();
-  double getDerivedVal();
+  double getValue();
+  double getActivatedValue();
+  double getDerivedValue();
 
 private:
 
-  double val;
+  double value;
 
-  double activatedVal;
+  double activatedValue;
 
-  double derivedVal;
+  double derivedValue;
 };
 
 

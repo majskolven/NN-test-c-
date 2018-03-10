@@ -4,34 +4,39 @@
 
 //CTOR
 
-Neuron::Neuron(double val)
+Neuron::Neuron(double value)
 {
-  this->val           = val;
-  this->activatedVal  = this->activate();
-  this->derivedVal    = this->derive();
+  this->setValue(value);
 }
 
 double Neuron::activate()
 {
-  return this->val / (1 + abs(this->val));
+  return this->value / (1 + abs(this->value));
 }
 
 double Neuron::derive()
 {
-  return this->activatedVal * (1 - this->activatedVal);
+  return this->activatedValue * (1 - this->activatedValue);
 }
 
-double Neuron::getVal()
+double Neuron::getValue()
 {
-  return this->val;
+  return this->value;
 }
 
-double Neuron::getActivatedVal()
+double Neuron::getActivatedValue()
 {
-  return this->activatedVal;
+  return this->activatedValue;
 }
 
-double Neuron::getDerivedVal()
+double Neuron::getDerivedValue()
 {
-  return this->derivedVal;
+  return this->derivedValue;
+}
+
+void Neuron::setValue(double value)
+{
+  this->value = value;
+  this->activatedValue = activate();
+  this->derivedValue = derive();
 }

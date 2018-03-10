@@ -16,7 +16,7 @@ public:
   Layer(int size);
 
 
-
+  ~Layer();
 private:
   int size;
   vector<Neuron *> layer;
