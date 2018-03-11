@@ -15,13 +15,17 @@ class NeuralNet
 {
 
 public:
-  NeuralNet(int nrOfLayers, int nrOfNeurons);
+  NeuralNet(vector<int> NNLayout, vector<double> inputValues);
+
+  void setInputLayer(vector<double> inputValues);
 
 
 private:
   //The number of Layers and Neurons in each Layer
-  vector<Layer*> layers;
-  vector<Matrice*> weights;
+  vector<int>       NNLayout;
+  vector<Layer*>    layers;
+  vector<Matrice*>  weights;
+  vector<double>    inputValues;
 };
 
 

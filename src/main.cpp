@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "../headers/Layer.h"
 
@@ -7,29 +8,25 @@
 
 #include "../headers/Matrice.h"
 
+#include "../headers/NeuralNet.h"
+
 using namespace std;
 
 
 int main ()
 {
+  vector<int> layout;
+  layout.push_back(3);
+  layout.push_back(2);
+  layout.push_back(3);
 
-  Matrice *m = new Matrice(3,2,true);
-  cout << to_string(m->getRowCount())<< "    " << to_string(m->getColCount()) << endl << endl;
-  cout << m->toString() << endl;
+  vector<double> inputVals;
+  inputVals.push_back(1.0);
+  inputVals.push_back(0.0);
+  inputVals.push_back(1.0);
 
-  cout << "=================================" << endl;
 
-
-  Matrice *mtrans = m->tranposeMatrice();
-  cout << to_string(mtrans->getRowCount())<< "    "  << to_string(mtrans->getColCount()) << endl << endl;
-  cout << mtrans->toString() << endl;
-  //In
-  /*Neuron *n = new Neuron(5.9);
-  Layer *l = new Layer(10);
-  cout << "Val: " << n->getValue() << endl;
-  cout << "Val Activated: " << n->getActivatedValue() << endl;
-  cout << "Val Derived: " << n->getDerivedValue() << endl;
-  delete n;*/
+  NeuralNet *net = new NeuralNet(layout, inputVals);
 
   return 0;
 }
