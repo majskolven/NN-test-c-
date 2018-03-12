@@ -28,5 +28,7 @@ int main ()
 
   NeuralNet *net = new NeuralNet(layout, inputVals);
 
+  cout << net->toString() << endl;
+
   return 0;
 }

@@ -15,6 +15,11 @@ void Layer::setValues(int index, double value)
   this->layer.at(index)->setValue(value);
 }
 
+Neuron* Layer::getNeuron(int index)
+{
+  return this->layer.at(index);
+}
+
 int Layer::getSize()
 {
   return this->size;
@@ -27,11 +32,11 @@ Matrice* Layer::convertToMatrice(ValueType type)
   {
     switch(type){
       case ACTIVATED:
-        result->setSpecificValue(1, i, this->layer.at(i)->getActivatedValue());
+        result->setSpecificValue(0, i, this->layer.at(i)->getActivatedValue());
       case DERIVED:
-        result->setSpecificValue(1, i, this->layer.at(i)->getDerivedValue());
+        result->setSpecificValue(0, i, this->layer.at(i)->getDerivedValue());
       case NORMAL:
-        result->setSpecificValue(1, i, this->layer.at(i)->getValue());
+        result->setSpecificValue(0, i, this->layer.at(i)->getValue());
     }
   }
   return result;

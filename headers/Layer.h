@@ -26,6 +26,7 @@ public:
   void setValues(int index, double value);
   int getSize();
 
+  Neuron* getNeuron(int index);
   Matrice* convertToMatrice(ValueType type);
   ~Layer();
 private:

@@ -15,11 +15,14 @@ class NeuralNet
 {
 
 public:
+  NeuralNet(vector<int> NNLayout);
   NeuralNet(vector<int> NNLayout, vector<double> inputValues);
 
+
   void setInputLayer(vector<double> inputValues);
+  string toString();
 
-
+  ~NeuralNet();
 private:
   //The number of Layers and Neurons in each Layer
   vector<int>       NNLayout;
