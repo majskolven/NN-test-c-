@@ -6,12 +6,18 @@
 
 using namespace std;
 
+enum ActivationType{
+  TANH,
+  RELU,
+  SIGMOID
+};
 
 class Neuron
 {
 
 public:
   Neuron(double value);
+  Neuron(double value, ActivationType type);
 
 
   //using fast sigmoid
@@ -28,16 +34,11 @@ public:
   double getDerivedValue();
 
 private:
-
+  ActivationType type;
   double value;
-
   double activatedValue;
-
   double derivedValue;
 };
-
-
-
 
 
 
