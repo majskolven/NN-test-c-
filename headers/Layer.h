@@ -22,12 +22,19 @@ class Layer
 
 public:
   Layer(int size);
+  Layer(int size, ActivationType type);
 
-  void setValues(int index, double value);
-  int getSize();
 
-  Neuron* getNeuron(int index);
   Matrice* convertToMatrice(ValueType type);
+
+  int getSize();
+  Neuron* getNeuron(int index);
+  vector<double> getActivatedValues();
+  vector<Neuron *> getLayer();
+
+  void setLayer(vector<Neuron *> layer);
+  void setNeuronValue(int index, double value);
+
   ~Layer();
 private:
   int size;

@@ -10,7 +10,17 @@ Layer::Layer(int size)
   }
 }
 
-void Layer::setValues(int index, double value)
+Layer::Layer(int size, ActivationType type)
+{
+  this->size = size;
+  for(int i=0; i < this->size; i++)
+  {
+    this->layer.push_back(new Neuron(0.0, type));
+  }
+
+}
+
+void Layer::setNeuronValue(int index, double value)
 {
   this->layer.at(index)->setValue(value);
 }
@@ -28,7 +38,7 @@ int Layer::getSize()
 Matrice* Layer::convertToMatrice(ValueType type)
 {
   Matrice *result = new Matrice(1, this->layer.size(), false);
-  for(unsigned int i = 0; i<this->layer.size(); i++)
+  for(unsigned int i = 0; i < this->layer.size(); i++)
   {
     switch(type){
       case ACTIVATED:
@@ -40,6 +50,16 @@ Matrice* Layer::convertToMatrice(ValueType type)
     }
   }
   return result;
+}
+
+vector<double> Layer::getActivatedValues()
+{
+  vector<double> returnValue;
+  for(unsigned int i = 0; i < this->layer.size(); i++)
+  {
+    returnValue.push_back(this->layer.at(i)->getActivatedValue());
+  }
+  return returnValue;
 }
 
 Layer::~Layer()

@@ -46,7 +46,7 @@ void NeuralNet::setInputLayer(vector<double> inputValues)
   this->inputValues = inputValues;
   for(unsigned int i = 0; i < inputValues.size(); i++)
   {
-    this->layers.at(0)->setValues(i, inputValues.at(i));
+    this->layers.at(0)->setNeuronValue(i, inputValues.at(i));
   }
 }
 
