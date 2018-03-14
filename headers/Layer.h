@@ -5,27 +5,20 @@
 #include <vector>
 #include "Neuron.h"
 #include "Matrice.h"
+#include "./utils/utils.h"
 
 
 using namespace std;
-
-enum ValueType
-{
-   ACTIVATED,
-   DERIVED,
-   NORMAL
-};
-
 
 class Layer
 {
 
 public:
   Layer(int size);
-  Layer(int size, ActivationType type);
+  Layer(int size, utils::ActivationType type);
 
 
-  Matrice* convertToMatrice(ValueType type);
+  Matrice* convertToMatrice(utils::ValueType type);
 
   int getSize();
   Neuron* getNeuron(int index);

@@ -1,4 +1,4 @@
-CFLAGS=-Wall -O2 -std=c++14
+CFLAGS=-O2 -std=c++14
 
 SRCFOLDER=src
 BINFOLDER=bin

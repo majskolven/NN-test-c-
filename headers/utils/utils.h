@@ -1,6 +1,5 @@
 #ifndef UTILS_H
 #define UTILS_H
-
 #include "../Matrice.h"
 
 #include <iostream>
@@ -9,10 +8,29 @@
 #include <vector>
 #include <assert.h>
 
+
+
 using namespace std;
 
 namespace utils
 {
+  static const int MSE_COST = 1;
+
+
+  enum ValueType
+  {
+     ACTIVATED,
+     DERIVED,
+     NORMAL
+  };
+
+  enum ActivationType{
+    TANH,
+    RELU,
+    SIGMOID
+  };
+
+
   class Helper
   {
   public:

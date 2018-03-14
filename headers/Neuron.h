@@ -3,21 +3,18 @@
 
 #include <iostream>
 #include <math.h>
+#include "./utils/utils.h"
+
 
 using namespace std;
-
-enum ActivationType{
-  TANH,
-  RELU,
-  SIGMOID
-};
+using namespace utils;
 
 class Neuron
 {
 
 public:
   Neuron(double value);
-  Neuron(double value, ActivationType type);
+  Neuron(double value, utils::ActivationType type);
 
 
   //using fast sigmoid
@@ -34,7 +31,7 @@ public:
   double getDerivedValue();
 
 private:
-  ActivationType type;
+  utils::ActivationType type;
   double value;
   double activatedValue;
   double derivedValue;

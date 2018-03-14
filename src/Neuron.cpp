@@ -8,7 +8,7 @@ Neuron::Neuron(double value)
   this->setValue(value);
 }
 
-Neuron::Neuron(double value, ActivationType type)
+Neuron::Neuron(double value, utils::ActivationType type)
 {
   this->type = type;
   this->setValue(value);
@@ -18,14 +18,14 @@ double Neuron::activate()
 {
   double returnValue;
   switch(this->type){
-    case TANH:
+    case utils::TANH:
       returnValue = tanh(this->value);
-    case RELU:
+    case utils::RELU:
       if(this->value > 0)
         returnValue = this->getValue();
       else
         return 0;
-    case SIGMOID:
+    case utils::SIGMOID:
       returnValue = 1 / (1 + exp(-this->value));
     default:
         returnValue = this->value / (1 + abs(this->value)); //Defaulting to "fast" sigmoid
@@ -38,14 +38,14 @@ double Neuron::derive()
 {
   double returnValue;
   switch(this->type){
-    case TANH:
+    case utils::TANH:
       returnValue = 1.0 - pow(this->activatedValue, 2);
-    case RELU:
+    case utils::RELU:
       if(this->value > 0)
         returnValue = 1;
       else
         returnValue = 0;
-    case SIGMOID:
+    case utils::SIGMOID:
       returnValue = this->activatedValue * (1 - this->activatedValue);
     default:
         returnValue = this->activatedValue * (1 - this->activatedValue);
