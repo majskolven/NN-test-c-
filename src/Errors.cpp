@@ -35,8 +35,7 @@ void NeuralNet::errorsFunc()
 
 void NeuralNet::costErrorsFunc()
 {
-  int outputLayerIndex         = this->layers.size() - 1;
-  vector<Neuron*> outputLayer = this->layers.at(outputLayerIndex)->getLayer();
+  vector<Neuron*> outputLayer = this->layers.at(this->layers.size() - 1)->getLayer();
   this->error = 0.00;
 
   for(int i = 0; i < this->targetValues.size(); i++)

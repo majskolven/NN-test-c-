@@ -41,7 +41,7 @@ public:
 
   vector<double> getActivatedValues(int index);
   Matrice* getWeights(int index);
-  Matrice* getConvertedLayer(int index, utils::ValueType type);
+  Matrice* getConvertedLayer(int index, ValueType type);
 
 
   void forwardProp();

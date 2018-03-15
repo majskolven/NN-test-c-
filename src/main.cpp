@@ -19,7 +19,7 @@ using namespace std;
 int main ()
 {
 
-  Matrice *a = new Matrice(3, 3, true);
+  /*Matrice *a = new Matrice(3, 3, true);
   cout << a->toString() << endl;
   Matrice *b = new Matrice(3, 3, true);
   cout << "===================================" << endl;
@@ -29,24 +29,30 @@ int main ()
 
   utils::Helper::matriceMultiplier(a,b,c);
 
-  cout << c->toString() << endl;
+  cout << c->toString() << endl;*/
 
 
-  /*vector<int> layout;
+  vector<int> layout;
   layout.push_back(4);
+  layout.push_back(5);
+  layout.push_back(5);
+  layout.push_back(5);
   layout.push_back(5);
   layout.push_back(5);
   layout.push_back(5);
   layout.push_back(3);
 
-  vector<double> inputVals;
-  inputVals.push_back(3.0);
-  inputVals.push_back(4.0);
-  inputVals.push_back(4.0);
-  inputVals.push_back(4.0);
 
-  NeuralNet *net = new NeuralNet(layout, inputVals);
-  cout << net->toString() << endl;*/
+  NeuralNet *net = new NeuralNet(layout, 1.345, SIGMOID, SIGMOID, 1);
+  vector<double> v;
+  v.push_back(4.5);
+  v.push_back(2.5);
+  v.push_back(3.7);
+  v.push_back(1.2);
+  net->setInputLayer(v);
+  net->forwardProp();
+
+  cout << net->toString() << endl<<endl<<endl;
 
   return 0;
 }
