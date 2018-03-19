@@ -23,6 +23,7 @@ public:
   double getSpecificValue(int row, int cols);
   int getRowCount();
   int getColCount();
+  string getDimension();
 
   string toString();
 

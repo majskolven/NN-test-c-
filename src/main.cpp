@@ -33,26 +33,25 @@ int main ()
 
 
   vector<int> layout;
-  layout.push_back(4);
-  layout.push_back(5);
-  layout.push_back(5);
-  layout.push_back(5);
-  layout.push_back(5);
-  layout.push_back(5);
-  layout.push_back(5);
+  layout.push_back(2);
   layout.push_back(3);
+  layout.push_back(4);
+  layout.push_back(4);
+  layout.push_back(4);
+  layout.push_back(3);
+
 
 
   NeuralNet *net = new NeuralNet(layout, 1.345, SIGMOID, SIGMOID, 1);
   vector<double> v;
   v.push_back(4.5);
   v.push_back(2.5);
-  v.push_back(3.7);
-  v.push_back(1.2);
+
   net->setInputLayer(v);
   net->forwardProp();
 
   cout << net->toString() << endl<<endl<<endl;
+
 
   return 0;
 }

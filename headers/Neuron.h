@@ -13,8 +13,8 @@ class Neuron
 {
 
 public:
-  Neuron(double value);
-  Neuron(double value, utils::ActivationType type);
+  Neuron(double value, bool isBias);
+  Neuron(double value, utils::ActivationType type, bool isBias);
 
 
   //using fast sigmoid
@@ -26,12 +26,15 @@ public:
   //setter
   void setValue(double value);
   //getter
+  bool getIsBias();
   double getValue();
   double getActivatedValue();
   double getDerivedValue();
 
 private:
   utils::ActivationType type;
+
+  bool isBias;
   double value;
   double activatedValue;
   double derivedValue;

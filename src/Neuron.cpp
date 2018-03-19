@@ -3,15 +3,23 @@
 
 
 //CTOR
-Neuron::Neuron(double value)
+Neuron::Neuron(double value, bool isBias)
 {
-  this->setValue(value);
+  this->isBias = isBias;
+  if(this->isBias)
+    this->setValue(1.00);
+  else
+    this->setValue(value);
 }
 
-Neuron::Neuron(double value, utils::ActivationType type)
+Neuron::Neuron(double value, utils::ActivationType type, bool isBias)
 {
   this->type = type;
-  this->setValue(value);
+  this->isBias = isBias;
+  if(this->isBias)
+    this->setValue(1.00);
+  else
+    this->setValue(value);
 }
 
 double Neuron::activate()
@@ -54,6 +62,11 @@ double Neuron::derive()
   return returnValue;
 }
 
+bool Neuron::getIsBias()
+{
+  return this->isBias;
+}
+
 double Neuron::getValue()
 {
   return this->value;
@@ -72,6 +85,8 @@ double Neuron::getDerivedValue()
 void Neuron::setValue(double value)
 {
   this->value = value;
-  this->activatedValue = activate();
-  this->derivedValue = derive();
+  if(!this->isBias){
+    this->activatedValue = activate();
+    this->derivedValue = derive();
+  }
 }

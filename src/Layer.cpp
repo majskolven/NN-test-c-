@@ -3,20 +3,24 @@
 
 Layer::Layer(int size)
 {
-  this->size = size;
-  for(int i=0; i < this->size; i++)
+  this->size = size + 1;
+  for(int i=0; i < this->size-1; i++)
   {
-    this->layer.push_back(new Neuron(0.0));
+    this->layer.push_back(new Neuron(0.0, false));
   }
+  //Adding Bias Neuron
+  this->layer.push_back(new Neuron(1.0, true));
 }
 
 Layer::Layer(int size, utils::ActivationType type)
 {
-  this->size = size;
-  for(int i=0; i < this->size; i++)
+  this->size = size + 1;
+  for(int i=0; i < this->size-1; i++)
   {
-    this->layer.push_back(new Neuron(0.0, type));
+    this->layer.push_back(new Neuron(0.0, type, false));
   }
+  //Adding Bias Neuron
+  this->layer.push_back(new Neuron(1.0, true));
 
 }
 

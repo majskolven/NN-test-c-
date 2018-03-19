@@ -109,12 +109,17 @@ string NeuralNet::toString()
   for(unsigned int i = 0; i < NNLayout.size(); i++)
   {
     result += "------- Layer: " + to_string(i+1) + "-------\n";
-    for(unsigned int j = 0; j < NNLayout.at(i); j++)
+    for(unsigned int j = 0; j < NNLayout.at(i) + 1; j++)
     {
-      if(!i)
+      if(this->layers.at(i)->getNeuron(j)->getIsBias())
+        cout<<"Bias Neuron in layer " << i+1 << " at index " << j <<endl;
+
+      if(!i || j == NNLayout.at(i)){
         result += to_string(this->layers.at(i)->getNeuron(j)->getValue()) + "\t\t";
-      else
+      }
+      else{
         result += to_string(this->layers.at(i)->getNeuron(j)->getActivatedValue()) + "\t\t";
+      }
     }
     result += "\n";
   }

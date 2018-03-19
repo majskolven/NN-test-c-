@@ -41,9 +41,9 @@ void NeuralNet::costErrorsFunc()
   for(int i = 0; i < this->targetValues.size(); i++)
   {
     double target     = this->targetValues.at(i);
-    double prediction = outputLayer.at(i)->getActivatedValue();
-    this->errors.at(i) = pow(abs(target - prediction), 2);
-    this->derivedErrors.at(i) = prediction - target;
+    double neuralNetPrediction = outputLayer.at(i)->getActivatedValue();
+    this->errors.at(i) = 0.5 * pow(abs(target - neuralNetPrediction), 2);
+    this->derivedErrors.at(i) = neuralNetPrediction - target;
 
     this->error += errors.at(i);
   }

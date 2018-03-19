@@ -66,6 +66,11 @@ int Matrice::getColCount()
   return this->cols;
 }
 
+string Matrice::getDimension()
+{
+  return to_string(this->getRowCount()) + "X" + to_string(this->getColCount());
+}
+
 string Matrice::toString()
 {
   string result = "";
